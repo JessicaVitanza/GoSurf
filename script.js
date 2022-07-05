@@ -10,7 +10,7 @@ let weather = {
         .then((response) => {
           if (!response.ok) {
             alert("No weather found.");
-            throw new Error("No weather found.");
+            throw new Error("City not found.");
           }
           return response.json();
         })
@@ -37,8 +37,6 @@ let weather = {
         "Wind speed: " + speed + " km/h";
   
       document.querySelector(".weather").classList.remove("loading");
-      document.body.style.backgroundImage =
-        "url('https://source.unsplash.com/1600x900/?" + name + "')";
     },
     search: function () {
       this.fetchWeather(document.querySelector(".search-bar").value);
